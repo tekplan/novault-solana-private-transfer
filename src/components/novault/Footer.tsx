@@ -29,7 +29,7 @@ export function Footer() {
           <div className="col-span-6 md:col-span-2">
             <div className="font-mono text-[10px] uppercase tracking-[0.2em] text-muted mb-4">Resources</div>
             <ul className="space-y-2 text-sm">
-              <li><a className="text-secondary hover:text-[var(--mint)]" href="#">Docs</a></li>
+              <li><a className="text-secondary hover:text-[var(--mint)]" href="/docs">Docs</a></li>
               <li><a className="text-secondary hover:text-[var(--mint)]" href="#">GitHub</a></li>
               <li><a className="text-secondary hover:text-[var(--mint)]" href="#">X / Twitter</a></li>
             </ul>
