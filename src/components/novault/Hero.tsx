@@ -112,8 +112,20 @@ export function Hero() {
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.4, duration: 1 }}
+              className="relative"
             >
               <TransferCard />
+              <div className="pointer-events-none absolute -right-3 -bottom-10 z-20 hidden sm:block md:-right-8 md:-bottom-14 lg:-right-12 lg:-bottom-16">
+                <div className="absolute inset-8 rounded-full bg-[var(--mint)] opacity-20 blur-3xl" />
+                <div className="relative rounded-[2rem] border border-[rgba(0,245,138,0.22)] bg-[rgba(4,28,28,0.42)] p-2 shadow-[0_0_80px_rgba(0,245,138,0.12)] backdrop-blur-sm">
+                  <img
+                    src="/img11.png"
+                    alt="Novault agent mascot"
+                    className="h-36 w-36 object-contain drop-shadow-[0_18px_45px_rgba(0,0,0,0.45)] md:h-44 md:w-44 lg:h-52 lg:w-52"
+                    loading="eager"
+                  />
+                </div>
+              </div>
             </motion.div>
           </div>
         </div>
