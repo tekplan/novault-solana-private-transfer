@@ -32,7 +32,7 @@ export function CTA() {
         <Reveal delay={0.3}>
           <div className="mt-10 flex items-center justify-center gap-3 flex-wrap">
             <a
-              href="#"
+              href="https://dashboard.usenovault.xyz"
               className="glass-pill rounded-full pl-6 pr-2 py-2.5 inline-flex items-center gap-3 group"
               style={{ background: "rgba(0,245,138,0.10)", borderColor: "rgba(0,245,138,0.35)" }}
             >

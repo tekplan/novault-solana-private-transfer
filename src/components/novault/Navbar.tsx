@@ -32,7 +32,7 @@ export function Navbar() {
               Privacy
             </a>
             <a
-              href="#cta"
+              href="https://dashboard.usenovault.xyz"
               className="glass-pill rounded-full px-4 py-2 text-xs font-mono uppercase tracking-wider text-[var(--mint)] border-[rgba(0,245,138,0.3)]"
             >
               Launch Agent
@@ -83,7 +83,7 @@ export function Navbar() {
                   ["02", "Private Flow", "#flow"],
                   ["03", "Use Cases", "#use-cases"],
                   ["04", "Foundation", "#foundation"],
-                  ["05", "Launch Agent", "#cta"],
+                  ["05", "Launch Agent", "https://dashboard.usenovault.xyz"],
                 ].map(([n, label, href], i) => (
                   <motion.a
                     key={label}

@@ -69,7 +69,7 @@ export function Hero() {
               className="flex items-center gap-3 mt-6 md:justify-end"
             >
               <a
-                href="#cta"
+                href="https://dashboard.usenovault.xyz"
                 className="glass-pill rounded-full pl-5 pr-2 py-2 inline-flex items-center gap-3 group"
                 style={{ background: "rgba(0,245,138,0.10)", borderColor: "rgba(0,245,138,0.3)" }}
               >
