@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { Menu, X, Shield } from "lucide-react";
+import { Menu, X } from "lucide-react";
 
 export function Navbar() {
   const [open, setOpen] = useState(false);
@@ -9,8 +9,8 @@ export function Navbar() {
       <header className="fixed top-4 left-1/2 -translate-x-1/2 z-50 w-[min(1280px,calc(100%-2rem))]">
         <nav className="glass-strong rounded-full pl-5 pr-2 py-2 flex items-center justify-between">
           <a href="#hero" className="flex items-center gap-2 group">
-            <span className="grid place-items-center w-7 h-7 rounded-md bg-[var(--elevated)] border border-[var(--border)]">
-              <Shield className="w-3.5 h-3.5 text-[var(--mint)]" strokeWidth={1.5} />
+            <span className="grid place-items-center w-8 h-8 rounded-md bg-[var(--elevated)] border border-[var(--border)] overflow-hidden">
+              <img src="/logofav.png" alt="Novault" className="w-full h-full object-cover" />
             </span>
             <span className="font-display text-[15px] tracking-tight">
               <span className="text-[var(--mint)]">NO</span>

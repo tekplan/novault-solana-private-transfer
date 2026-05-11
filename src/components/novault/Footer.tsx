@@ -1,5 +1,3 @@
-import { Shield } from "lucide-react";
-
 export function Footer() {
   return (
     <footer id="privacy" className="relative border-t border-[var(--border)]">
@@ -7,8 +5,8 @@ export function Footer() {
         <div className="grid grid-cols-12 gap-8">
           <div className="col-span-12 md:col-span-5">
             <div className="flex items-center gap-2">
-              <span className="grid place-items-center w-7 h-7 rounded-md bg-[var(--elevated)] border border-[var(--border)]">
-                <Shield className="w-3.5 h-3.5 text-[var(--mint)]" strokeWidth={1.5} />
+              <span className="grid place-items-center w-8 h-8 rounded-md bg-[var(--elevated)] border border-[var(--border)] overflow-hidden">
+                <img src="/logofav.png" alt="Novault" className="w-full h-full object-cover" />
               </span>
               <span className="font-display text-[15px] tracking-tight">
                 <span className="text-[var(--mint)]">NO</span>
