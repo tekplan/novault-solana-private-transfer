@@ -3,6 +3,7 @@ import { createRoot } from "react-dom/client";
 
 import { DocsPage } from "@/routes/docs";
 import { Index } from "@/routes/index";
+import NotFound from "@/pages/not-found";
 import "./styles.css";
 
 function App() {
@@ -12,7 +13,11 @@ function App() {
     return <DocsPage />;
   }
 
-  return <Index />;
+  if (path === "/") {
+    return <Index />;
+  }
+
+  return <NotFound />;
 }
 
 createRoot(document.getElementById("root")!).render(
