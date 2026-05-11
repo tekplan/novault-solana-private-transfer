@@ -11,7 +11,10 @@ export function Hero() {
       <div className="absolute top-1/3 left-1/2 -translate-x-1/2 w-[900px] h-[900px] rounded-full bg-[var(--mint)] opacity-[0.05] blur-[120px] pointer-events-none" />
 
       {/* abstract rails */}
-      <svg className="absolute inset-0 w-full h-full opacity-[0.18] pointer-events-none" preserveAspectRatio="none">
+      <svg
+        className="absolute inset-0 w-full h-full opacity-[0.18] pointer-events-none"
+        preserveAspectRatio="none"
+      >
         <defs>
           <linearGradient id="rail" x1="0" x2="1">
             <stop offset="0" stopColor="transparent" />
@@ -27,38 +30,63 @@ export function Hero() {
         {/* top row */}
         <div className="grid grid-cols-12 gap-6 mb-16 md:mb-24">
           <div className="col-span-12 md:col-span-7">
-            <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 0.8 }} className="kicker mb-6">
-              /// Confidential Transfer Layer for Solana
+            <motion.div
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ duration: 0.8 }}
+              className="kicker mb-6"
+            >
+              /// Autonomous Private Settlement Agent for Solana
             </motion.div>
             <motion.h1
-              initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 1, delay: 0.1 }}
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 1, delay: 0.1 }}
               className="display text-[44px] sm:text-6xl md:text-7xl lg:text-[88px] text-balance"
             >
-              Private transfers<br />
-              for Solana-native<br />
-              <span className="text-secondary">money.</span>
+              Private transfers,
+              <br />
+              executed by an
+              <br />
+              <span className="text-secondary">agent.</span>
             </motion.h1>
           </div>
           <div className="col-span-12 md:col-span-5 md:pt-32">
             <motion.p
-              initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 1, delay: 0.3 }}
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 1, delay: 0.3 }}
               className="text-secondary text-[15px] leading-relaxed max-w-md md:ml-auto text-pretty"
             >
-              Novault brings confidential token transfers to Solana —
-              shielding sensitive transfer amounts while preserving
-              speed, verifiability, and non-custodial control.
+              Novault is an autonomous settlement agent for Solana-native money — preparing
+              confidential Token-2022 transfers, shielding sensitive amounts, and requiring wallet
+              approval before value moves.
             </motion.p>
             <motion.div
-              initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 0.6 }}
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ delay: 0.6 }}
               className="flex items-center gap-3 mt-6 md:justify-end"
             >
-              <a href="#cta" className="glass-pill rounded-full pl-5 pr-2 py-2 inline-flex items-center gap-3 group" style={{ background: "rgba(0,245,138,0.10)", borderColor: "rgba(0,245,138,0.3)" }}>
-                <span className="text-sm text-[var(--mint)]">Launch App</span>
+              <a
+                href="#cta"
+                className="glass-pill rounded-full pl-5 pr-2 py-2 inline-flex items-center gap-3 group"
+                style={{ background: "rgba(0,245,138,0.10)", borderColor: "rgba(0,245,138,0.3)" }}
+              >
+                <span className="text-sm text-[var(--mint)]">Launch Agent</span>
                 <span className="w-7 h-7 rounded-full bg-[var(--mint)] grid place-items-center transition-transform group-hover:rotate-45">
-                  <ArrowUpRight className="w-3.5 h-3.5 text-[var(--background)]" strokeWidth={2.2} />
+                  <ArrowUpRight
+                    className="w-3.5 h-3.5 text-[var(--background)]"
+                    strokeWidth={2.2}
+                  />
                 </span>
               </a>
-              <a href="#foundation" className="glass-pill rounded-full px-5 py-2.5 text-sm text-secondary">Explore Protocol</a>
+              <a
+                href="#foundation"
+                className="glass-pill rounded-full px-5 py-2.5 text-sm text-secondary"
+              >
+                Explore Protocol
+              </a>
             </motion.div>
           </div>
         </div>
@@ -67,17 +95,24 @@ export function Hero() {
         <div className="grid grid-cols-12 gap-6 items-end">
           <div className="col-span-12 md:col-span-5 order-2 md:order-1">
             <motion.div
-              initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.5 }}
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.5 }}
               className="kicker"
             >
               /// 01 — Settlement Console
             </motion.div>
             <p className="mt-3 text-sm text-muted max-w-xs">
-              A confidential command center for moving value across Solana with zero exposed amounts.
+              A confidential command center where an agent turns payment intent into wallet-approved
+              private settlement.
             </p>
           </div>
           <div className="col-span-12 md:col-span-7 order-1 md:order-2 float-y">
-            <motion.div initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.4, duration: 1 }}>
+            <motion.div
+              initial={{ opacity: 0, y: 30 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.4, duration: 1 }}
+            >
               <TransferCard />
             </motion.div>
           </div>
@@ -89,7 +124,8 @@ export function Hero() {
           <h2
             className="display text-center font-display text-[26vw] md:text-[19vw] leading-none tracking-[-0.06em]"
             style={{
-              backgroundImage: "linear-gradient(180deg, rgba(243,255,248,0.18) 0%, rgba(0,245,138,0.06) 60%, transparent 100%)",
+              backgroundImage:
+                "linear-gradient(180deg, rgba(243,255,248,0.18) 0%, rgba(0,245,138,0.06) 60%, transparent 100%)",
               WebkitBackgroundClip: "text",
               backgroundClip: "text",
               color: "transparent",
@@ -104,13 +140,15 @@ export function Hero() {
         {/* metrics strip */}
         <div className="relative -mt-10 grid grid-cols-2 md:grid-cols-4 gap-px bg-[var(--border)] glass rounded-xl overflow-hidden">
           {[
+            ["Agentic", "execution"],
             ["Confidential", "amounts"],
-            ["Solana-speed", "settlement"],
             ["Token-2022", "native"],
-            ["Wallet-controlled", "execution"],
+            ["Wallet-approved", "custody"],
           ].map(([a, b]) => (
             <div key={a} className="bg-[var(--background)]/70 px-5 py-5">
-              <div className="font-mono text-[10px] uppercase tracking-[0.18em] text-muted mb-1">{b}</div>
+              <div className="font-mono text-[10px] uppercase tracking-[0.18em] text-muted mb-1">
+                {b}
+              </div>
               <div className="text-[15px] text-foreground">{a}</div>
             </div>
           ))}

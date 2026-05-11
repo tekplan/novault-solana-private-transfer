@@ -7,13 +7,24 @@ import { ArrowUpRight, BookOpen, Terminal, Shield, Zap, GitBranch, Lock } from "
 export const Route = createFileRoute("/docs")({
   head: () => ({
     meta: [
-      { title: "Docs — Novault" },
-      { name: "description", content: "Technical documentation for Novault — confidential transfers on Solana using Token-2022 and zero-knowledge proofs." },
-      { property: "og:title", content: "Novault Docs — Confidential Transfer Protocol" },
-      { property: "og:description", content: "Integrate confidential settlement into wallets, treasuries, and payment rails on Solana." },
+      { title: "Docs — Novault Agent" },
+      {
+        name: "description",
+        content:
+          "Technical documentation for Novault — an autonomous private transfer agent for Solana using Token-2022 confidential transfers and wallet approval.",
+      },
+      { property: "og:title", content: "Novault Docs — Private Transfer Agent" },
+      {
+        property: "og:description",
+        content:
+          "Integrate agentic confidential settlement into wallets, treasuries, and payment rails on Solana.",
+      },
     ],
     links: [
-      { rel: "stylesheet", href: "https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" },
+      {
+        rel: "stylesheet",
+        href: "https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&display=swap",
+      },
     ],
   }),
   component: DocsPage,
@@ -24,19 +35,19 @@ const sections = [
     id: "introduction",
     kicker: "01 / Introduction",
     title: "What is Novault.",
-    body: "Novault is a confidential settlement layer built natively on Solana. It uses Token-2022 Confidential Transfers and zero-knowledge validity proofs to shield transfer amounts while preserving on-chain verifiability and non-custodial control. The protocol is designed for wallets, treasuries, payroll surfaces, and on-chain operators who need privacy without leaving the speed and composability of Solana.",
+    body: "Novault is an autonomous private transfer agent built for Solana. It turns payment intent into prepared Token-2022 Confidential Transfers, uses zero-knowledge validity proofs to shield transfer amounts, and preserves non-custodial control through wallet-native approval. The protocol is designed for wallets, treasuries, payroll surfaces, and on-chain operators who need agentic automation without exposing sensitive financial details.",
   },
   {
     id: "architecture",
     kicker: "02 / Architecture",
     title: "How it is built.",
-    body: "Novault is composed of three layers: an encryption layer that handles ElGamal encryption of balances and amounts, a proof layer that generates and verifies zero-knowledge validity proofs, and a settlement layer that interfaces with the Solana Token-2022 program. All sensitive data is encrypted client-side before reaching the network.",
+    body: "Novault is composed of four layers: an agent layer that parses payment intent and applies policy, an encryption layer that handles ElGamal encryption of balances and amounts, a proof layer that generates and verifies zero-knowledge validity proofs, and a settlement layer that interfaces with the Solana Token-2022 program. Sensitive data is encrypted client-side before reaching the network; private keys remain in the wallet.",
   },
   {
     id: "confidential-transfers",
     kicker: "03 / Confidential Transfers",
     title: "The transfer primitive.",
-    body: "A confidential transfer hides the amount being moved while keeping sender and receiver public. The receiver decrypts the amount using their viewing key. Validity is enforced on-chain through ZK proofs — there is no trusted relayer, no off-chain oracle, and no custodial bridge.",
+    body: "A confidential transfer hides the amount being moved while keeping sender and receiver public. The agent can prepare, schedule, simulate, and monitor the transfer, but final movement requires wallet approval. The receiver decrypts the amount using their viewing key. Validity is enforced on-chain through ZK proofs — there is no trusted relayer, no off-chain oracle, and no custodial bridge.",
   },
 ];
 
@@ -48,15 +59,16 @@ const apiSnippets = [
 const novault = new Novault({
   network: "solana-mainnet",
   wallet: connectedWallet,
+  agent: { mode: "non-custodial" },
 });`,
   },
   {
     label: "Confidential Transfer",
-    code: `await novault.transfer.confidential({
+    code: `await novault.agent.preparePrivateTransfer({
+  intent: "pay contractor invoice #4421",
   token: "USDC-2022",
   to: recipient,
   amount: 1_000_000n,
-  memo: encrypted("invoice #4421"),
 });`,
   },
   {
@@ -69,12 +81,32 @@ const novault = new Novault({
 ];
 
 const resources = [
-  { icon: BookOpen, title: "Protocol whitepaper", desc: "Cryptographic primitives, threat model, and proof system." },
-  { icon: Terminal, title: "SDK reference", desc: "TypeScript bindings for client-side encryption and proof generation." },
+  {
+    icon: BookOpen,
+    title: "Protocol whitepaper",
+    desc: "Cryptographic primitives, threat model, and proof system.",
+  },
+  {
+    icon: Terminal,
+    title: "SDK reference",
+    desc: "TypeScript bindings for client-side encryption and proof generation.",
+  },
   { icon: Shield, title: "Security model", desc: "What Novault hides, what it does not, and why." },
-  { icon: Zap, title: "Performance notes", desc: "Proof generation timings, settlement latency, and gas profile." },
-  { icon: GitBranch, title: "Integration guides", desc: "Drop confidential transfers into existing wallets and treasury tools." },
-  { icon: Lock, title: "Key management", desc: "Viewing keys, spending keys, and rotation patterns." },
+  {
+    icon: Zap,
+    title: "Performance notes",
+    desc: "Proof generation timings, settlement latency, and gas profile.",
+  },
+  {
+    icon: GitBranch,
+    title: "Integration guides",
+    desc: "Drop confidential transfers into existing wallets and treasury tools.",
+  },
+  {
+    icon: Lock,
+    title: "Key management",
+    desc: "Viewing keys, spending keys, and rotation patterns.",
+  },
 ];
 
 export function DocsPage() {
@@ -93,27 +125,42 @@ export function DocsPage() {
                 Documentation · v0.4 · Mainnet
               </div>
               <h1 className="font-display text-[44px] md:text-[72px] leading-[0.95] tracking-tight">
-                Build with <span className="text-[var(--mint)]">confidential</span><br />
-                settlement.
+                Build with <span className="text-[var(--mint)]">agentic</span>
+                <br />
+                confidential settlement.
               </h1>
               <p className="mt-8 text-secondary text-base md:text-lg max-w-xl leading-relaxed">
-                A reference for integrating Novault into wallets, treasury tools, and payment surfaces on Solana. Read top-to-bottom, or jump into the SDK.
+                A reference for integrating Novault Agent into wallets, treasury tools, and payment
+                surfaces on Solana. Read top-to-bottom, or jump into the SDK.
               </p>
             </div>
             <div className="col-span-12 lg:col-span-4">
               <div className="glass rounded-xl p-5 border border-[var(--border)]">
-                <div className="font-mono text-[10px] uppercase tracking-[0.2em] text-muted mb-3">On this page</div>
+                <div className="font-mono text-[10px] uppercase tracking-[0.2em] text-muted mb-3">
+                  On this page
+                </div>
                 <ul className="space-y-2 text-sm">
                   {sections.map((s) => (
                     <li key={s.id}>
-                      <a href={`#${s.id}`} className="text-secondary hover:text-[var(--mint)] flex items-center justify-between group">
+                      <a
+                        href={`#${s.id}`}
+                        className="text-secondary hover:text-[var(--mint)] flex items-center justify-between group"
+                      >
                         <span>{s.title.replace(".", "")}</span>
                         <ArrowUpRight className="w-3.5 h-3.5 opacity-0 group-hover:opacity-100 transition" />
                       </a>
                     </li>
                   ))}
-                  <li><a href="#sdk" className="text-secondary hover:text-[var(--mint)]">SDK reference</a></li>
-                  <li><a href="#resources" className="text-secondary hover:text-[var(--mint)]">Resources</a></li>
+                  <li>
+                    <a href="#sdk" className="text-secondary hover:text-[var(--mint)]">
+                      SDK reference
+                    </a>
+                  </li>
+                  <li>
+                    <a href="#resources" className="text-secondary hover:text-[var(--mint)]">
+                      Resources
+                    </a>
+                  </li>
                 </ul>
               </div>
             </div>
@@ -128,8 +175,12 @@ export function DocsPage() {
             <Reveal key={s.id}>
               <article id={s.id} className="grid grid-cols-12 gap-8 scroll-mt-32">
                 <div className="col-span-12 md:col-span-4">
-                  <div className="font-mono text-[10px] uppercase tracking-[0.25em] text-[var(--mint)] mb-4">{s.kicker}</div>
-                  <h2 className="font-display text-[28px] md:text-[36px] leading-tight tracking-tight">{s.title}</h2>
+                  <div className="font-mono text-[10px] uppercase tracking-[0.25em] text-[var(--mint)] mb-4">
+                    {s.kicker}
+                  </div>
+                  <h2 className="font-display text-[28px] md:text-[36px] leading-tight tracking-tight">
+                    {s.title}
+                  </h2>
                 </div>
                 <div className="col-span-12 md:col-span-8">
                   <p className="text-secondary text-[15px] md:text-base leading-[1.8]">{s.body}</p>
@@ -144,9 +195,11 @@ export function DocsPage() {
       <section id="sdk" className="py-24 md:py-32 border-t border-[var(--border)] scroll-mt-32">
         <div className="max-w-[1280px] mx-auto px-6 md:px-10">
           <div className="mb-16">
-            <div className="font-mono text-[10px] uppercase tracking-[0.25em] text-[var(--mint)] mb-4">04 / SDK</div>
+            <div className="font-mono text-[10px] uppercase tracking-[0.25em] text-[var(--mint)] mb-4">
+              04 / SDK
+            </div>
             <h2 className="font-display text-[32px] md:text-[48px] leading-tight tracking-tight max-w-2xl">
-              Three calls to confidential settlement.
+              Three calls to agentic confidential settlement.
             </h2>
           </div>
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-px bg-[var(--border)] glass rounded-2xl overflow-hidden">
@@ -168,14 +221,24 @@ export function DocsPage() {
       </section>
 
       {/* Resources */}
-      <section id="resources" className="py-24 md:py-32 border-t border-[var(--border)] scroll-mt-32">
+      <section
+        id="resources"
+        className="py-24 md:py-32 border-t border-[var(--border)] scroll-mt-32"
+      >
         <div className="max-w-[1280px] mx-auto px-6 md:px-10">
           <div className="mb-16 flex items-end justify-between flex-wrap gap-4">
             <div>
-              <div className="font-mono text-[10px] uppercase tracking-[0.25em] text-[var(--mint)] mb-4">05 / Resources</div>
-              <h2 className="font-display text-[32px] md:text-[48px] leading-tight tracking-tight">Go deeper.</h2>
+              <div className="font-mono text-[10px] uppercase tracking-[0.25em] text-[var(--mint)] mb-4">
+                05 / Resources
+              </div>
+              <h2 className="font-display text-[32px] md:text-[48px] leading-tight tracking-tight">
+                Go deeper.
+              </h2>
             </div>
-            <a href="/" className="font-mono text-[11px] uppercase tracking-[0.2em] text-secondary hover:text-[var(--mint)] flex items-center gap-2">
+            <a
+              href="/"
+              className="font-mono text-[11px] uppercase tracking-[0.2em] text-secondary hover:text-[var(--mint)] flex items-center gap-2"
+            >
               Back to home <ArrowUpRight className="w-3.5 h-3.5" />
             </a>
           </div>

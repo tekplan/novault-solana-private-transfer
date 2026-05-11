@@ -6,19 +6,25 @@ export function TransferCard() {
     <div className="relative">
       {/* floating tags */}
       <motion.div
-        initial={{ opacity: 0, x: -10 }} animate={{ opacity: 1, x: 0 }} transition={{ delay: 0.6 }}
+        initial={{ opacity: 0, x: -10 }}
+        animate={{ opacity: 1, x: 0 }}
+        transition={{ delay: 0.6 }}
         className="absolute -left-6 top-12 glass rounded-full px-3 py-1.5 font-mono text-[10px] uppercase tracking-[0.16em] text-[var(--mint-soft)] hidden md:block"
       >
         ⌁ Amount encrypted
       </motion.div>
       <motion.div
-        initial={{ opacity: 0, x: 10 }} animate={{ opacity: 1, x: 0 }} transition={{ delay: 0.8 }}
+        initial={{ opacity: 0, x: 10 }}
+        animate={{ opacity: 1, x: 0 }}
+        transition={{ delay: 0.8 }}
         className="absolute -right-4 top-32 glass rounded-full px-3 py-1.5 font-mono text-[10px] uppercase tracking-[0.16em] text-[var(--mint-soft)] hidden md:block"
       >
         ✓ Proof verified
       </motion.div>
       <motion.div
-        initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 1 }}
+        initial={{ opacity: 0, y: 10 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ delay: 1 }}
         className="absolute -left-8 bottom-20 glass rounded-full px-3 py-1.5 font-mono text-[10px] uppercase tracking-[0.16em] text-secondary hidden md:block"
       >
         Token-2022
@@ -32,9 +38,13 @@ export function TransferCard() {
           <div className="flex items-center justify-between mb-5">
             <div className="flex items-center gap-2">
               <span className="w-2 h-2 rounded-full bg-[var(--mint)] pulse-soft" />
-              <span className="font-mono text-[10px] uppercase tracking-[0.2em] text-secondary">Confidential Transfer</span>
+              <span className="font-mono text-[10px] uppercase tracking-[0.2em] text-secondary">
+                Confidential Transfer
+              </span>
             </div>
-            <span className="font-mono text-[10px] uppercase tracking-[0.18em] text-muted">SOLANA · MAINNET</span>
+            <span className="font-mono text-[10px] uppercase tracking-[0.18em] text-muted">
+              SOLANA · MAINNET
+            </span>
           </div>
 
           <div className="space-y-3">
@@ -75,17 +85,33 @@ function Row({ label, value, mono }: { label: string; value: string; mono?: bool
   );
 }
 
-function Field({ label, value, mint, pill }: { label: string; value: string; mint?: boolean; pill?: boolean }) {
+function Field({
+  label,
+  value,
+  mint,
+  pill,
+}: {
+  label: string;
+  value: string;
+  mint?: boolean;
+  pill?: boolean;
+}) {
   return (
     <div className="glass rounded-lg px-3 py-2.5">
-      <div className="font-mono text-[9px] uppercase tracking-[0.18em] text-muted mb-1">{label}</div>
+      <div className="font-mono text-[9px] uppercase tracking-[0.18em] text-muted mb-1">
+        {label}
+      </div>
       {pill ? (
         <div className="inline-flex items-center gap-1.5 text-[11px] font-mono text-[var(--mint)]">
           <span className="w-1.5 h-1.5 rounded-full bg-[var(--mint)] pulse-soft" />
           {value}
         </div>
       ) : (
-        <div className={`text-sm font-mono ${mint ? "text-[var(--mint)] tracking-[0.2em]" : "text-foreground"}`}>{value}</div>
+        <div
+          className={`text-sm font-mono ${mint ? "text-[var(--mint)] tracking-[0.2em]" : "text-foreground"}`}
+        >
+          {value}
+        </div>
       )}
     </div>
   );
@@ -95,7 +121,8 @@ function Stat({ icon, label, value }: { icon: React.ReactNode; label: string; va
   return (
     <div>
       <div className="flex items-center gap-1 font-mono text-[9px] uppercase tracking-[0.16em] text-muted mb-1">
-        {icon}{label}
+        {icon}
+        {label}
       </div>
       <div className="text-[11px] font-mono text-secondary">{value}</div>
     </div>

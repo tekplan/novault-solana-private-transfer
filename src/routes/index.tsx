@@ -5,6 +5,7 @@ import { Hero } from "@/components/novault/Hero";
 import { LeakSection } from "@/components/novault/LeakSection";
 import { DefinitionSection } from "@/components/novault/DefinitionSection";
 import { FlowSection } from "@/components/novault/FlowSection";
+import { AgentSection } from "@/components/novault/AgentSection";
 import { OSSection } from "@/components/novault/OSSection";
 import { UseCases } from "@/components/novault/UseCases";
 import { Foundation } from "@/components/novault/Foundation";
@@ -14,17 +15,28 @@ import { Footer } from "@/components/novault/Footer";
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
-      { title: "Novault — Confidential Transfers for Solana" },
-      { name: "description", content: "Novault brings confidential token transfers to Solana — shielding sensitive transfer amounts while preserving speed, verifiability, and non-custodial control." },
-      { property: "og:title", content: "Novault — Confidential Transfers for Solana" },
-      { property: "og:description", content: "A confidential settlement interface for Solana-native money. Private. Fast. Verifiable. Non-custodial." },
+      { title: "Novault — Private Transfer Agent for Solana" },
+      {
+        name: "description",
+        content:
+          "Novault is an autonomous private settlement agent for Solana-native money — preparing confidential Token-2022 transfers while the wallet keeps custody.",
+      },
+      { property: "og:title", content: "Novault — Private Transfer Agent for Solana" },
+      {
+        property: "og:description",
+        content:
+          "Private transfers, executed by an agent, settled on Solana. Confidential amounts, wallet approval, non-custodial control.",
+      },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
     ],
     links: [
       { rel: "preconnect", href: "https://fonts.googleapis.com" },
       { rel: "preconnect", href: "https://fonts.gstatic.com", crossOrigin: "anonymous" },
-      { rel: "stylesheet", href: "https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" },
+      {
+        rel: "stylesheet",
+        href: "https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&display=swap",
+      },
     ],
   }),
   component: Index,
@@ -39,6 +51,7 @@ export function Index() {
       <LeakSection />
       <DefinitionSection />
       <FlowSection />
+      <AgentSection />
       <OSSection />
       <UseCases />
       <Foundation />

@@ -49,7 +49,10 @@ export function ScrollRail() {
               active === id ? "text-[var(--mint)]" : "text-muted hover:text-secondary"
             }`}
           >
-            <span className="w-1 h-1 rounded-full" style={{ background: active === id ? "var(--mint)" : "var(--border)" }} />
+            <span
+              className="w-1 h-1 rounded-full"
+              style={{ background: active === id ? "var(--mint)" : "var(--border)" }}
+            />
             <span>{n}</span>
             <span className="opacity-0 group-hover:opacity-100">{label}</span>
           </a>
