@@ -1,4 +1,4 @@
-import { createFileRoute, Link } from "@tanstack/react-router";
+import { createFileRoute } from "@tanstack/react-router";
 import { Navbar } from "@/components/novault/Navbar";
 import { Footer } from "@/components/novault/Footer";
 import { Reveal } from "@/components/novault/Reveal";
@@ -77,7 +77,7 @@ const resources = [
   { icon: Lock, title: "Key management", desc: "Viewing keys, spending keys, and rotation patterns." },
 ];
 
-function DocsPage() {
+export function DocsPage() {
   return (
     <main className="relative bg-background text-foreground overflow-x-hidden">
       <Navbar />
@@ -175,9 +175,9 @@ function DocsPage() {
               <div className="font-mono text-[10px] uppercase tracking-[0.25em] text-[var(--mint)] mb-4">05 / Resources</div>
               <h2 className="font-display text-[32px] md:text-[48px] leading-tight tracking-tight">Go deeper.</h2>
             </div>
-            <Link to="/" className="font-mono text-[11px] uppercase tracking-[0.2em] text-secondary hover:text-[var(--mint)] flex items-center gap-2">
+            <a href="/" className="font-mono text-[11px] uppercase tracking-[0.2em] text-secondary hover:text-[var(--mint)] flex items-center gap-2">
               Back to home <ArrowUpRight className="w-3.5 h-3.5" />
-            </Link>
+            </a>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-px bg-[var(--border)] glass rounded-2xl overflow-hidden">
             {resources.map((r, i) => (

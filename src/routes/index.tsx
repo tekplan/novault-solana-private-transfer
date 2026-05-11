@@ -30,7 +30,7 @@ export const Route = createFileRoute("/")({
   component: Index,
 });
 
-function Index() {
+export function Index() {
   return (
     <main className="relative bg-background text-foreground overflow-x-hidden">
       <Navbar />
